@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let grades = [
+            [
+                [9, 10, 9, 8, 10],
+                [8, 8, 8, 8, 8]
+            ],
+            [
+                [9, 10, 9, 8, 10],
+                [8, 8, 8, 8, 8],
+                [9, 10, 9, 8, 10]
+            ]
+        ]
+
+        let groupIndex = +prompt("Choose group index (0, 1): ");
+        let studentIndex = +prompt("Choose student index: ");
+
+        // Вводим оценки для студента с клавиатуры
+        for (let i = 0; i < 5; i++) {
+            let mark = +prompt(`Enter mark ${i + 1} for student: `);
+            
+            // Проверяем, что введенное значение оценки является числом
+            if (!isNaN(mark)) {
+                grades[groupIndex][studentIndex][i] = mark;
+            } else {
+                alert("Invalid input. Please enter a number.");
+                // Если введено что-то, что не является числом, просто прерываем цикл
+                break;
+            }
+        }
+
+        // Выводим оценки для выбранного студента
+        for (let i = 0; i < 5; i++) {
+            console.log(`Mark ${i + 1}: ${grades[groupIndex][studentIndex][i]}`);
+        }
+    </script>
+</body>
+</html>
